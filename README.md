@@ -3,4 +3,4 @@ VLSI physical design and automation course KL University, Hyderabad.
 
 by
 - Sayooj S
-- Special thanks to @rizzpect for the support and guidance.
+- Special thanks to [@rizzpect](https://github.com/rizzpect) for the support and guidance.
