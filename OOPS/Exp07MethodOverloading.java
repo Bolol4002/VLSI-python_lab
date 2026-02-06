@@ -1,17 +1,17 @@
 public class Exp07MethodOverloading {
     static class Calculator {
-        int add(int a, int b) {
-            return a + b;
+        int area(int a, int b) {
+            return a*b;
         }
 
-        int add(int a, int b, int c) {
-            return a + b + c;
+        double area(int r) {
+            return (3.14)*r*r;
         }
     }
 
     public static void main(String[] args) {
         Calculator calc = new Calculator();
-        System.out.println(calc.add(2, 3));
-        System.out.println(calc.add(1, 2, 3));
+        System.out.println(calc.area(2, 3));
+        System.out.println(calc.area(7));
     }
 }
