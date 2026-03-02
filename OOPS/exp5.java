@@ -1,8 +1,8 @@
-public class Exp05ClassesObjectsMethods {
-    static class Box {
+public class exp5 {
+    static class square {
         int length;
 
-        Box(int length) {
+        square(int length) {
             this.length = length;
         }
 
@@ -12,7 +12,7 @@ public class Exp05ClassesObjectsMethods {
     }
 
     public static void main(String[] args) {
-        Box b = new Box(5);
+        square b = new square(5);
         System.out.println(b.doubleLength());
     }
 }

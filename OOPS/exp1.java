@@ -1,4 +1,4 @@
-public class Exp01DecisionLoops {
+public class exp1 {
     public static void main(String[] args) {
         int n = 7;
         if (n % 2 == 0) {
