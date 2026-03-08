@@ -1,10 +1,10 @@
-import mypackage.Calculator;
+import mypackage.BillCalculator;
 public class exp10 {
     public static void main(String[] args) {
 
-        Calculator c = new Calculator();
-        int baseFare = 120;
-        int serviceCharge = 30;
-        System.out.println("Total Fare = " + c.add(baseFare, serviceCharge));
+        BillCalculator b = new BillCalculator();
+        int units = 120;
+        int ratePerUnit = 6;
+        System.out.println("Electricity Bill = " + b.calculate(units, ratePerUnit));
     }
 }
