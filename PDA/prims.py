@@ -1,24 +1,28 @@
-import sys
+def prim(graph):
+	n = len(graph)
+	in_mst = [False] * n
+	in_mst[0] = True  # Start from vertex 0.
 
+	mst_edges = []
+	total = 0
 
-def prim(graph, vertices):
-	selected = [False] * vertices
-	selected[0] = True
-	print("Edge \tWeight")
-	for _ in range(vertices - 1):
-		minimum = sys.maxsize
-		x = 0
-		y = 0
-		for i in range(vertices):
-			if selected[i]:
-				for j in range(vertices):
-					if not selected[j] and graph[i][j] != 0:
-						if graph[i][j] < minimum:
-							minimum = graph[i][j]
-							x = i
-							y = j
-		print(f"{x} - {y} \t{graph[x][y]}")
-		selected[y] = True
+	for _ in range(n - 1):
+		best_u, best_v = -1, -1
+		best_w = float("inf")
+
+		# Pick the lightest edge from chosen set -> unchosen set.
+		for u in range(n):
+			if in_mst[u]:
+				for v in range(n):
+					w = graph[u][v]
+					if w != 0 and not in_mst[v] and w < best_w:
+						best_u, best_v, best_w = u, v, w
+
+		in_mst[best_v] = True
+		mst_edges.append((best_u, best_v, best_w))
+		total += best_w
+
+	return mst_edges, total
 
 
 graph = [
@@ -34,4 +38,8 @@ graph = [
 ]
 
 
-prim(graph, 9)
+edges, total_weight = prim(graph)
+print("Edges in Prim MST:")
+for u, v, w in edges:
+    print(f"{u} - {v} (weight {w})")
+print("Total weight:", total_weight)

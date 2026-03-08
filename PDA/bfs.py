@@ -1,54 +1,40 @@
 from collections import deque
 
-# BFS shortest path function
 def bfs_shortest_path(graph, start, goal):
-    visited = set()
     queue = deque([start])
-    parent = {start: None}
-
-    visited.add(start)
+    parent = {start: None}  # parent[x] = node from which x was first reached
 
     while queue:
-        node = queue.popleft()
-
+        node = queue.popleft()  # BFS explores level by level
         if node == goal:
             break
 
-        for neighbor in graph[node]:
-            if neighbor not in visited:
-                visited.add(neighbor)
-                parent[neighbor] = node
-                queue.append(neighbor)
+        for nxt in graph[node]:
+            if nxt not in parent:  # not visited yet
+                parent[nxt] = node
+                queue.append(nxt)
 
-    # Reconstruct path
-    path = []
-    current = goal
-    while current is not None:
-        path.append(current)
-        current = parent.get(current)
-
-    path.reverse()
-
-    if path[0] == start:
-        return path
-    else:
+    if goal not in parent:
         return None
 
-# Graph representation
+    # Build path backwards: goal -> ... -> start, then reverse.
+    path = []
+    cur = goal
+    while cur is not None:
+        path.append(cur)
+        cur = parent[cur]
+    path.reverse()
+    return path
+
+
 graph = {
-    'A': ['B', 'C'],
-    'B': ['A', 'D', 'E'],
-    'C': ['A', 'F'],
-    'D': ['B'],
-    'E': ['B', 'F'],
-    'F': ['C', 'E']
+    "A": ["B", "C"],
+    "B": ["A", "D", "E"],
+    "C": ["A", "F"],
+    "D": ["B"],
+    "E": ["B", "F"],
+    "F": ["C", "E"],
 }
-source = 'A'
-destination = 'F'
 
-shortest_path = bfs_shortest_path(graph, source, destination)
-
-if shortest_path:
-    print("Shortest path:", " -> ".join(shortest_path))
-else:
-    print("No path exists")
+result = bfs_shortest_path(graph, "A", "F")
+print("BFS shortest path:", " -> ".join(result) if result else "No path")

@@ -1,42 +1,32 @@
-def dfs_shortest_path(graph, start, goal):
-    shortest_path = None
+def dfs_path(graph, start, goal):
+    visited = set()
+    path = []
 
-    def dfs(current, goal, visited, path):
-        nonlocal shortest_path
+    def dfs(node):
+        visited.add(node)
+        path.append(node)  # We are currently walking through this node.
 
-        visited.add(current)
-        path.append(current)
+        if node == goal:
+            return True  # Goal found; keep the current path.
 
-        if current == goal:
-            if shortest_path is None or len(path) < len(shortest_path):
-                shortest_path = list(path)
-        else:
-            for neighbor in graph[current]:
-                if neighbor not in visited:
-                    dfs(neighbor, goal, visited, path)
+        for nxt in graph[node]:
+            if nxt not in visited and dfs(nxt):
+                return True  # Bubble success up the recursion stack.
 
-        path.pop()
-        visited.remove(current)
+        path.pop()  # Dead end, so remove this node from current path.
+        return False
 
-    dfs(start, goal, set(), [])
-    return shortest_path
+    return path if dfs(start) else None
 
-# Graph representation
+
 graph = {
-    'A': ['B', 'C'],
-    'B': ['D', 'E'],
-    'C': ['F'],
-    'D': [],
-    'E': ['F'],
-    'F': []
+    "A": ["B", "C"],
+    "B": ["D", "E"],
+    "C": ["F"],
+    "D": [],
+    "E": ["F"],
+    "F": [],
 }
 
-source = 'A'
-destination = 'F'
-
-path = dfs_shortest_path(graph, source, destination)
-
-if path:
-    print("Path found:", " -> ".join(path))
-else:
-    print("No path exists")
+result = dfs_path(graph, "A", "F")
+print("DFS path:", " -> ".join(result) if result else "No path")
