@@ -1,14 +1,13 @@
 module exptestbench03;
-reg clk,reset,start;
-reg [7:0] data_in;
-wire tx;
-Exp03 dut(clk,reset,start,data_in,tx);
-always #5 clk=~clk;
+reg [3:0] a,b;
+wire [4:0] sum;
+assign sum=a+b;
 initial begin
-clk=0; reset=1; start=0; data_in=8'hAA;
-#10 reset=0;
-#10 start=1;
-#10 start=0;
-#100 $finish;
+repeat(10) begin
+a=$urandom_range(0,9);
+b=$urandom_range(0,9);
+#10 $display("a=%0d b=%0d sum=%0d",a,b,sum);
+end
+#20 $finish;
 end
 endmodule
