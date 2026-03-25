@@ -4,7 +4,7 @@ def find(parent, i):
     return parent[i]
 
 
-def union(parent, x, y):
+def union(parent, x, y):    
     rx = find(parent, x)
     ry = find(parent, y)
     if rx != ry:
