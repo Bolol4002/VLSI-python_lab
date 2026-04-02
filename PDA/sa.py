@@ -7,7 +7,7 @@ def calculate_cut_size(graph, partition):
         for v in graph[u]:
             if partition[u] != partition[v]:
                 cut_size += 1
-    return cut_size // 2  # each edge counted twice
+    return cut_size // 2  
 
 def generate_neighbor(partition):
     new_partition = partition.copy()
