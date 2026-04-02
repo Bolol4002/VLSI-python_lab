@@ -36,6 +36,7 @@ def simulated_annealing(graph, T=1000, cooling_rate=0.95, T_min=1):
         T = T * cooling_rate
 
     return best_partition, best_cost
+    
 graph = {
     1: [2, 3, 4],
     2: [1, 3, 5],
