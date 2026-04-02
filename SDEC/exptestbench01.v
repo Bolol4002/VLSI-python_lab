@@ -1,3 +1,4 @@
+//`include "Exp01.v";
 module exptestbench01;
 reg [7:0] A,B;
 wire [15:0] P;
