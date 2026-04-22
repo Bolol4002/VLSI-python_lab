@@ -968,4 +968,6 @@ The **cut size** is the number of edges with one endpoint in group A and the oth
 
 ---
 
-*Happy studying! Master these 7 algorithms and you'll have a solid foundation in graph-based physical design automation.* 🚀
+*Happy studying! Master these 7 algorithms and you'll have a solid foundation in graph-based physical design automation.* 🚀pped | Action | Queue after |
+|------|--------|--------|-------------|
+| 1 | A | Enqueue B
