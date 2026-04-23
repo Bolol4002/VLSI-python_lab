@@ -1,45 +1,28 @@
 def prim(graph):
-	n = len(graph)
-	in_mst = [False] * n
-	in_mst[0] = True  # Start from vertex 0.
+	visited = []
+	for i in range(graph[0]):
+		visited[i]=False
 
-	mst_edges = []
-	total = 0
-
-	for _ in range(n - 1):
-		best_u, best_v = -1, -1
-		best_w = float("inf")
-
-		# Pick the lightest edge from chosen set -> unchosen set.
-		for u in range(n):
-			if in_mst[u]:
-				for v in range(n):
-					w = graph[u][v]
-					if w != 0 and not in_mst[v] and w < best_w:
-						best_u, best_v, best_w = u, v, w
-
-		in_mst[best_v] = True
-		mst_edges.append((best_u, best_v, best_w))
-		total += best_w
-
-	return mst_edges, total
-
+	visited[0]=true
+	mst=0
+	for i in graph:
+		for j in i:
+			w = graph[i][j]
+			if(w>graph[i][0]+graph[j][0]):
+				mst=graph[i][0]+graph[j][0]
+			else:
+				mst+=w
+			visted[i]=true
+	return mst
 
 graph = [
-	[0, 4, 0, 0, 0, 0, 0, 8, 0],
-	[4, 0, 8, 0, 0, 0, 0, 11, 0],
-	[0, 8, 0, 7, 0, 4, 0, 0, 2],
-	[0, 0, 7, 0, 9, 14, 0, 0, 0],
-	[0, 0, 0, 9, 0, 10, 0, 0, 0],
-	[0, 0, 4, 14, 10, 0, 2, 0, 0],
-	[0, 0, 0, 0, 0, 2, 0, 1, 6],
-	[8, 11, 0, 0, 0, 0, 1, 0, 7],
-	[0, 0, 2, 0, 0, 0, 6, 7, 0],
+	[0, 2, 7, 0],
+	[2, 0, 1, 8],
+	[7, 1, 0, 3],
+	[0, 8, 3, 0],
 ]
 
 
 edges, total_weight = prim(graph)
-print("Edges in Prim MST:")
-for u, v, w in edges:
-    print(f"{u} - {v} (weight {w})")
-print("Total weight:", total_weight)
+print("MST of the grapth is :")
+print("MST:", total_weight)+9*9*9
