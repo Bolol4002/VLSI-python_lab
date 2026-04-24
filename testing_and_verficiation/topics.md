@@ -1,4 +1,4 @@
-CO1 (1–10): Fundamentals, Fault Modeling, Simulation
+# CO1 (1–10): Fundamentals, Fault Modeling, Simulation
 Basics of testing in VLSI systems
 Importance of testing
 Test challenges in IC testing
@@ -12,9 +12,8 @@ Fault simulation algorithms
 Statistical fault simulation approaches
 Complete test flow (modeling, simulation, evaluation)
 
-⚠️ Note: CO1 actually has 12 items in your table, not 10.
 
-CO2 (11–20): Test Generation & ATPG
+# CO2 (11–20): Test Generation & ATPG
 Fundamentals of test generation (combinational circuits)
 Test generation algorithms (combinational)
 Redundant faults in combinational circuits
@@ -27,7 +26,7 @@ Application of combinational ATPG
 End-to-end test generation flow
 
 
-CO3 (21–30): DFT & Memory Testing
+# CO3 (21–30): DFT & Memory Testing
 Fundamentals of DFT
 Ad-hoc DFT techniques
 Scan-based design elements and purpose
