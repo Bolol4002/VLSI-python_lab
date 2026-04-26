@@ -48,7 +48,7 @@ Below is a clean extraction of **topics grouped under each Course Outcome (CO1�
   * Minimize cut size
   * Balance partitions
 * Types of partitioning algorithms
-* Kernighan–Lin (KL) Algorithm
+* Kernighan–Lin (KL) Algorithm - https://www.youtube.com/watch?v=95OB005rdtA
 
   * Basic algorithm
   * Gain calculation
